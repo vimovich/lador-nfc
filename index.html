@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ACV Vinegar Shampoo — Lador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #e4eff6;
+    --bg-dark: #d6e8f2;
+    --white: #fff;
+    --black: #0c0c0c;
+    --text: #1a1a1a;
+    --muted: #6b7a85;
+    --accent: #1a6478;
+    --gold: #c9a84c;
+    --light-gold: #f0e6c8;
+    --section-bg: rgba(255,255,255,0.6);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Golos Text', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ───── HEADER ───── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(228, 239, 246, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(26, 100, 120, 0.08);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-logo img {
+    height: 32px;
+    display: block;
+  }
+
+  .header-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(26,100,120,0.08);
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  .header-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  /* ───── HERO ───── */
+  .hero {
+    padding: 32px 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .hero-label::before,
+  .hero-label::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .hero-name {
+    font-family: 'Prata', serif;
+    font-size: clamp(24px, 7vw, 34px);
+    line-height: 1.2;
+    color: var(--black);
+    margin-bottom: 8px;
+    max-width: 340px;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 28px;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    animation: floatY 4s ease-in-out infinite;
+  }
+
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero-image-wrap img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 20px 40px rgba(26,100,120,0.15));
+  }
+
+  .hero-volume-pill {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border-radius: 24px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  .hero-volume-pill span {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* ───── PRICE BAR ───── */
+  .price-bar {
+    margin: 0 20px;
+    background: var(--accent);
+    border-radius: var(--radius);
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+    margin-top: -1px;
+  }
+
+  .price-bar-label {
+    font-size: 12px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  .price-bar-amount {
+    font-family: 'Prata', serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .price-bar-amount span {
+    font-family: 'Golos Text', sans-serif;
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+
+  .volumes-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+  }
+
+  .vol-btn {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    color: var(--white);
+    font-family: 'Golos Text', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .vol-btn.active {
+    background: var(--white);
+    color: var(--accent);
+    border-color: var(--white);
+  }
+
+  /* ───── CONTENT ───── */
+  .content {
+    padding: 20px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ───── INFO CARD ───── */
+  .info-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .info-card-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .info-card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  .info-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-card-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .info-card-chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: var(--muted);
+  }
+
+  .info-card.open .info-card-chevron {
+    transform: rotate(180deg);
+  }
+
+  .info-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .info-card.open .info-card-body {
+    max-height: 600px;
+  }
+
+  .info-card-inner {
+    padding: 0 20px 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .info-card-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+    padding-top: 14px;
+  }
+
+  /* ───── EFFECTS ───── */
+  .effects-list {
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .effect-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .effect-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .effect-label span:last-child {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .effect-bar-bg {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .effect-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #4da8c7);
+    border-radius: 99px;
+    width: 0%;
+    transition: width 1s ease;
+  }
+
+  /* ───── INGREDIENTS ───── */
+  .ingredient-tags {
+    padding-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ingredient-tag {
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    border: 1px solid rgba(26,100,120,0.12);
+  }
+
+  /* ───── WHO CARD ───── */
+  .who-grid {
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .who-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  .who-item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* ───── HOW TO USE ───── */
+  .steps-list {
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    counter-reset: steps;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    counter-increment: steps;
+  }
+
+  .step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  /* ───── SHOWROOM BANNER ───── */
+  .showroom-banner {
+    margin: 0 20px 20px;
+    background: var(--black);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .showroom-banner::before {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: -30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%);
+  }
+
+  .showroom-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .showroom-icon svg {
+    width: 22px;
+    height: 22px;
+    color: var(--gold);
+  }
+
+  .showroom-text h3 {
+    font-family: 'Prata', serif;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+
+  .showroom-text p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  /* ───── BRAND STRIP ───── */
+  .brand-strip {
+    margin: 0 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid rgba(26,100,120,0.12);
+    border-radius: var(--radius-sm);
+  }
+
+  .brand-strip img {
+    height: 20px;
+    opacity: 0.5;
+  }
+
+  .brand-strip p {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  /* ───── FADE-IN ANIMATION ───── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ───── SAFE AREA ───── */
+  .safe-bottom {
+    height: calc(env(safe-area-inset-bottom) + 8px);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-logo">
+    <img src="https://lador.uz/wp-content/themes/lador-uz/assets/images/logo.svg" alt="LADOR" onerror="this.style.display='none';this.nextSibling.style.display='block'">
+    <span style="display:none;font-family:'Prata',serif;font-size:20px;letter-spacing:0.15em;color:#0c0c0c;font-weight:400">LADOR</span>
+  </div>
+  <div class="header-badge">
+    <div class="header-badge-dot"></div>
+    Шоу-рум
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Профессиональный уход</div>
+  <h1 class="hero-name">ACV Vinegar<br>Shampoo</h1>
+  <p class="hero-sub">Яблочный уксус для здоровья кожи головы</p>
+
+  <div class="hero-image-wrap">
+    <img
+      src="https://lador.uz/wp-content/uploads/2026/08/acv-vinegar-shampoo-530ml-scaled.png.webp"
+      alt="Lador ACV Vinegar Shampoo"
+      loading="eager"
+    >
+  </div>
+</section>
+
+<!-- PRICE BAR -->
+<div class="price-bar fade-up">
+  <div>
+    <div class="price-bar-label">Цена</div>
+    <div class="price-bar-amount" id="price-display">220 000 <span>сум</span></div>
+  </div>
+  <div class="volumes-selector">
+    <button class="vol-btn" onclick="selectVol(this, '100 000', '150ml')">150 мл</button>
+    <button class="vol-btn active" onclick="selectVol(this, '220 000', '530ml')">530 мл</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- Кому подходит -->
+  <div class="info-card fade-up" onclick="toggleCard(this)">
+    <div class="info-card-header">
+      <div class="info-card-title">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#1a6478">
+            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Кому подходит
+      </div>
+      <svg class="info-card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="info-card-body">
+      <div class="info-card-inner">
+        <div class="who-grid">
+          <div class="who-item"><div class="who-item-dot"></div><span>Жирная кожа головы и быстро засаливающиеся волосы</span></div>
+          <div class="who-item"><div class="who-item-dot"></div><span>Перхоть и зуд кожи головы</span></div>
+          <div class="who-item"><div class="who-item-dot"></div><span>Тусклые волосы, которым нужен блеск</span></div>
+          <div class="who-item"><div class="who-item-dot"></div><span>Чувствительная и склонная к раздражению кожа головы</span></div>
+          <div class="who-item"><div class="who-item-dot"></div><span>Волосы после окрашивания или химической обработки</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- О продукте -->
+  <div class="info-card fade-up" onclick="toggleCard(this)">
+    <div class="info-card-header">
+      <div class="info-card-title">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#1a6478">
+            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        О продукте
+      </div>
+      <svg class="info-card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="info-card-body">
+      <div class="info-card-inner">
+        <p class="info-card-text">
+          Шампунь на основе яблочного уксуса (ACV) от Lador бережно очищает кожу головы и волосы, восстанавливая их естественный pH-баланс. Формула с ферментированным яблочным уксусом нейтрализует щелочную среду после окрашивания, укрепляет кутикулу и придаёт волосам зеркальный блеск.
+        </p>
+        <p class="info-card-text" style="margin-top:10px;">
+          Корейская профессиональная косметика — без парабенов, SLS и искусственных красителей.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Действие -->
+  <div class="info-card fade-up" onclick="toggleCard(this)">
+    <div class="info-card-header">
+      <div class="info-card-title">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#1a6478">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Действие
+      </div>
+      <svg class="info-card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="info-card-body">
+      <div class="info-card-inner">
+        <div class="effects-list">
+          <div class="effect-item">
+            <div class="effect-label"><span>Балансировка pH</span><span>95%</span></div>
+            <div class="effect-bar-bg"><div class="effect-bar-fill" data-width="95"></div></div>
+          </div>
+          <div class="effect-item">
+            <div class="effect-label"><span>Блеск волос</span><span>90%</span></div>
+            <div class="effect-bar-bg"><div class="effect-bar-fill" data-width="90"></div></div>
+          </div>
+          <div class="effect-item">
+            <div class="effect-label"><span>Очищение кожи головы</span><span>88%</span></div>
+            <div class="effect-bar-bg"><div class="effect-bar-fill" data-width="88"></div></div>
+          </div>
+          <div class="effect-item">
+            <div class="effect-label"><span>Укрепление кутикулы</span><span>82%</span></div>
+            <div class="effect-bar-bg"><div class="effect-bar-fill" data-width="82"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Как применять -->
+  <div class="info-card fade-up" onclick="toggleCard(this)">
+    <div class="info-card-header">
+      <div class="info-card-title">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#1a6478">
+            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Как применять
+      </div>
+      <svg class="info-card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="info-card-body">
+      <div class="info-card-inner">
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text">Нанесите на влажные волосы и кожу головы небольшое количество шампуня</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">Помассируйте кожу головы круговыми движениями 1–2 минуты</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">Смойте тёплой водой. При необходимости повторите</div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text">Используйте 2–3 раза в неделю для наилучшего результата</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Состав -->
+  <div class="info-card fade-up" onclick="toggleCard(this)">
+    <div class="info-card-header">
+      <div class="info-card-title">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" color="#1a6478">
+            <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Состав
+      </div>
+      <svg class="info-card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="info-card-body">
+      <div class="info-card-inner">
+        <div class="ingredient-tags">
+          <span class="ingredient-tag">Fermented Apple Cider Vinegar</span>
+          <span class="ingredient-tag">Panthenol</span>
+          <span class="ingredient-tag">Biotin</span>
+          <span class="ingredient-tag">Keratin</span>
+          <span class="ingredient-tag">Centella Asiatica</span>
+          <span class="ingredient-tag">Salicylic Acid</span>
+          <span class="ingredient-tag">Tea Tree Oil</span>
+          <span class="ingredient-tag">Niacinamide</span>
+        </div>
+        <p class="info-card-text" style="margin-top:14px;font-size:12px;color:#999;">
+          Без парабенов · Без SLS · Без искусственных красителей
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SHOWROOM BANNER -->
+<div class="showroom-banner fade-up">
+  <div class="showroom-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="showroom-text">
+    <h3>Вы в шоу-руме Lador</h3>
+    <p>Этот товар есть в наличии. Наш консультант поможет с выбором</p>
+  </div>
+</div>
+
+<!-- BRAND STRIP -->
+<div class="brand-strip fade-up">
+  <p>Официальный дистрибьютор Lador Korea в Узбекистане</p>
+</div>
+
+<div class="safe-bottom"></div>
+
+<script>
+  // Volume switcher
+  function selectVol(btn, price, vol) {
+    document.querySelectorAll('.vol-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('price-display').innerHTML = price.replace(/(\d{3})$/, ' $1') + ' <span>сум</span>';
+  }
+
+  // Accordion toggle
+  function toggleCard(card) {
+    const isOpen = card.classList.contains('open');
+    card.classList.toggle('open');
+
+    // Animate effect bars when "Действие" opens
+    if (!isOpen) {
+      const bars = card.querySelectorAll('.effect-bar-fill');
+      bars.forEach(bar => {
+        setTimeout(() => {
+          bar.style.width = bar.dataset.width + '%';
+        }, 50);
+      });
+    } else {
+      const bars = card.querySelectorAll('.effect-bar-fill');
+      bars.forEach(bar => { bar.style.width = '0%'; });
+    }
+  }
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
